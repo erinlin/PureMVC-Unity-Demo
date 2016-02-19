@@ -29,10 +29,10 @@
     public void DisconnectMediator( string mediatorName ){...}
 
 #### 修改 MediatorPlug 的執行順序
-為確保 MediatorPlug 執行時間在場景起始後，需修改 Script Execution Order。打開 Edit / Project Settings / Script Execution Order，修改如下：
+為確保 MediatorPlug 執行時間在場景起始後，需修改 Script Execution Order。打開 Edit / Project Settings / Script Execution Order，修改如下：<br />
 <a href="https://2.bp.blogspot.com/-3J5p7t3qndY/VsXuaAFpLbI/AAAAAAAA2sg/ZC4tjqohoDI/s1600/Scene1_unity_-_PureMVC_-_Web_Player__Personal___OpenGL_4_1_.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-3J5p7t3qndY/VsXuaAFpLbI/AAAAAAAA2sg/ZC4tjqohoDI/s320/Scene1_unity_-_PureMVC_-_Web_Player__Personal___OpenGL_4_1_.png" /></a>
 #### 執行結果：
-<a href="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s1600/Scene1_unity.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s320/Scene1_unity.png" /></a></br>
+<a href="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s1600/Scene1_unity.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s320/Scene1_unity.png" /></a>
 
 最後試驗結果挺令人滿意的，轉換場景後也沒有垃圾留下來，測試專案內寫了兩種 ViewComponent <-> Mediator 與 Proxy 更新範例。
 
