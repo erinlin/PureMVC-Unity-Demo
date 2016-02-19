@@ -1,7 +1,7 @@
 # PureMVC for Unity
 幾個月前改用 Unity 開發遊戲，到目前的心得為：組件式開發真的是很便利，但是當組件數量多到一定程度時，結構上就有點可怕，常常在某 GameObject  上掛了組件後就忘了它的存在，雖然可以使用 Singleton design pattern 來製作主要的 Manager（本人對 Singleton 並不是很熱愛），程式還是會亂到一定程度，搜尋了一些 Unity with MVC 討論，一部分的人都對實作 MVC 不是很熱絡，也許是 Unity 特有的開發環境導致。
 
-以前開發 Adobe Flex 專案最愛用的 MVC Framework 就是 PureMVC，即使後來有更方便的 MVC Framework 的也擋不住我對它的熱愛。網路上 PureMVC 與 Unity 相關應用文章非常的稀少，也許是 PureMVC 的 ViewComponent 與 Mediator 整合套用在 Unity 有相當程度的難度，尤其 Unity 是沒有所謂的全域 Root Scene，所有場景都是獨立，想要控制項都在 PureMVC 架構中實作是有點矯情多餘。如何保持 Unity 組件開發模式，導入 PureMVC 鬆綁主要邏輯，就是這次實作的重點。
+以前開發 Adobe Flex 專案最愛用的 MVC Framework 就是 PureMVC，即使後來有更方便的 MVC Framework 的也擋不住我對它的熱愛。Unity 是沒有所謂的全域 Root Scene，所有場景都是獨立，想要將 AS3 實作邏輯套用在 Unity 上將控制項都在 PureMVC 架構中實作是有點矯情多餘。如何保持 Unity 組件開發模式，導入 PureMVC 鬆綁主要邏輯，就是這次實驗的重點。
 
 不清楚 PureMVC 的朋友們可以到這邊參觀一下：[PureMVC 我也會](http://www.erinylin.com/2011/03/puremvc-0.html)
 [PureMVC C# Standard Framework on GitHub](https://github.com/PureMVC/puremvc-csharp-standard-framework)
