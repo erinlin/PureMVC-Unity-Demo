@@ -4,6 +4,7 @@
 以前開發 Adobe Flex 專案最愛用的 MVC Framework 就是 PureMVC，即使後來有更方便的 MVC Framework 的也擋不住我對它的熱愛。Unity 是沒有所謂的全域 Root Scene，所有場景都是獨立，想要將 AS3 實作邏輯套用在 Unity 上將控制項都在 PureMVC 架構中實作是有點矯情多餘。如何保持 Unity 組件開發模式，導入 PureMVC 鬆綁主要邏輯，就是這次實驗的重點。
 
 不清楚 PureMVC 的朋友們可以到這邊參觀一下：[PureMVC 我也會](http://www.erinylin.com/2011/03/puremvc-0.html)
+
 [PureMVC C# Standard Framework on GitHub](https://github.com/PureMVC/puremvc-csharp-standard-framework)
 
 ### ViewComponent 與 Mediator 整合是首要工作：
@@ -31,7 +32,8 @@
 為確保 MediatorPlug 執行時間在場景起始後，需修改 Script Execution Order。打開 Edit / Project Settings / Script Execution Order，修改如下：
 <a href="https://2.bp.blogspot.com/-3J5p7t3qndY/VsXuaAFpLbI/AAAAAAAA2sg/ZC4tjqohoDI/s1600/Scene1_unity_-_PureMVC_-_Web_Player__Personal___OpenGL_4_1_.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-3J5p7t3qndY/VsXuaAFpLbI/AAAAAAAA2sg/ZC4tjqohoDI/s320/Scene1_unity_-_PureMVC_-_Web_Player__Personal___OpenGL_4_1_.png" /></a>
 #### 執行結果：
-<a href="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s1600/Scene1_unity.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s320/Scene1_unity.png" /></a>
+<a href="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s1600/Scene1_unity.png" imageanchor="1" ><img border="0" src="https://2.bp.blogspot.com/-XbAqINc91uI/VsX3m3GhafI/AAAAAAAA2sw/W_1moBWy6QQ/s320/Scene1_unity.png" /></a></br>
+
 最後試驗結果挺令人滿意的，轉換場景後也沒有垃圾留下來，測試專案內寫了兩種 ViewComponent <-> Mediator 與 Proxy 更新範例。
 
 
