@@ -2,11 +2,13 @@
 using System.Collections;
 using UnityEngine.UI;
 using PureMVC.Interfaces;
-using System;
 
 public class UnityFacade : PureMVC.Patterns.Facade {
 
 	public const string STARTUP = "UnityFacade.StartUp";
+
+	public const string CONNECT_MEDIATOR = "connectToMediator";
+	public const string DISCONNECT_MEDIATOR = "disconnectFromMediator";
 
 	static UnityFacade()
 	{
@@ -21,24 +23,26 @@ public class UnityFacade : PureMVC.Patterns.Facade {
 	protected override void InitializeController() {
 		base.InitializeController();
 		RegisterCommand( STARTUP, typeof(StartUpCommand)  );
+		RegisterCommand( CONNECT_MEDIATOR, typeof(MediatorPlugCommand)  );
+		RegisterCommand( DISCONNECT_MEDIATOR, typeof(MediatorPlugCommand)  );
 	}
-		
+
 	public void StartUp()
 	{
 		SendNotification( STARTUP );
 	}
-	//Handle IMediatorPlug connection
-	public void ConnectMediator( IMediatorPlug item )
-	{
-		Type mediatorType = Type.GetType( item.GetClassRef() );
-		if( mediatorType!=null){
-			IMediator mediatorPlug = (IMediator)Activator.CreateInstance( mediatorType, item.GetName(), item.GetView() ) ;
-			RegisterMediator( mediatorPlug );
-		}
-	}
-
-	public void DisconnectMediator( string mediatorName )
-	{
-		RemoveMediator( mediatorName );
-	}
+	//Handle MediatorPlug connection, params 修改成 INotification
+//	public void ConnectMediator( INotification item )
+//	{
+//		Type mediatorType = Type.GetType( item.Type );
+//		if( mediatorType!=null){
+//			IMediator mediatorPlug = (IMediator)Activator.CreateInstance( mediatorType, item.Name, item.Body ) ;
+//			RegisterMediator( mediatorPlug );
+//		}
+//	}
+//
+//	public void DisconnectMediator( string mediatorName )
+//	{
+//		RemoveMediator( mediatorName );
+//	}
 }

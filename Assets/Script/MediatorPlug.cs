@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using PureMVC.Patterns;
 
-public interface IMediatorPlug{
-	void Connect();
-	void Disconnect();
-	string GetName();
-	string GetClassRef();
-	UnityEngine.Object GetView();
-}
+//拿掉 ImediatorPlug interface
+//public interface IMediatorPlug{
+//	void Connect();
+//	void Disconnect();
+//}
 
-public class MediatorPlug : MonoBehaviour, IMediatorPlug {
+public class MediatorPlug : MonoBehaviour {
 
 	[SerializeField]
 	private string mediatorName;
@@ -29,38 +28,27 @@ public class MediatorPlug : MonoBehaviour, IMediatorPlug {
 	
 	// 
 	public void Connect () {
-		UnityFacade.GetInstance().ConnectMediator( this );
+		if( string.IsNullOrEmpty( mediatorName ) ){
+			mediatorName = System.Guid.NewGuid().ToString();
+		}
+		UnityFacade.GetInstance().SendNotification( UnityFacade.CONNECT_MEDIATOR, new Notification( mediatorName, gameObject, mediatorClassRef  ));
+//		UnityFacade.GetInstance().ConnectMediator( new Notification( mediatorName, gameObject, mediatorClassRef ) );
 	}
 
 	public void Connect (  string mediatorClassRef ) {
 		this.mediatorClassRef = mediatorClassRef;
-		UnityFacade.GetInstance().ConnectMediator( this );
+		Connect ();
 	}
 
 	public void Connect ( string mediatorClassRef ,string mediatorName ) {
 		this.mediatorName = mediatorName;
 		this.mediatorClassRef = mediatorClassRef;
-
-		UnityFacade.GetInstance().ConnectMediator( this );
+		Connect ();
 	}
 
 	public void Disconnect () {
-		UnityFacade.GetInstance().DisconnectMediator( mediatorName );
+		UnityFacade.GetInstance().SendNotification( UnityFacade.DISCONNECT_MEDIATOR, mediatorName );
+//		UnityFacade.GetInstance().DisconnectMediator( mediatorName );
 	}
 
-		
-	public string GetName(){
-		if( string.IsNullOrEmpty( mediatorName ) ){
-			mediatorName = System.Guid.NewGuid().ToString();
-		}
-		return mediatorName;
-	}
-
-	public string GetClassRef(){
-		return mediatorClassRef;
-	}
-
-	public UnityEngine.Object GetView(){
-		return gameObject;
-	}
 }

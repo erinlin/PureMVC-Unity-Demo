@@ -8,8 +8,7 @@ public class Main : MonoBehaviour {
 	void Awake () {
 		UnityFacade.GetInstance().StartUp();
 	}
-	
-	// Update is called once per frame
+	 
 	public void GotoNextScene () {
 		SceneManager.LoadScene( SceneManager.GetActiveScene().buildIndex + 1);
 	}
